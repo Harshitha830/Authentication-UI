@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="container" id="loginPage">
+        <div class="form-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        <span class="toggle-password" onclick="togglePassword('loginPassword')">👁️</span>
+                    </div>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox" id="rememberMe"> Remember me</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p class="switch-page">Don't have an account? <a href="#" onclick="showPage('registerPage')">Register</a></p>
+            </form>
+            <div id="loginError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div class="container hidden" id="registerPage">
+        <div class="form-box">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="registerName" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="registerEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="registerPassword" placeholder="Create password" required>
+                        <span class="toggle-password" onclick="togglePassword('registerPassword')">👁️</span>
+                    </div>
+                    <div class="password-strength" id="passwordStrength"></div>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <p class="switch-page">Already have an account? <a href="#" onclick="showPage('loginPage')">Login</a></p>
+            </form>
+            <div id="registerError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div class="container hidden" id="dashboardPage">
+        <div class="dashboard-box">
+            <h2>Welcome to Dashboard</h2>
+            <div class="user-info">
+                <p><strong>Name:</strong> <span id="userName"></span></p>
+                <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                <p><strong>Token:</strong> <span id="userToken"></span></p>
+            </div>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
